@@ -392,7 +392,7 @@ footer {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--primary-blue);
+    color: var(----background-color);
 }
 
 .footer-section:first-child h4 {
@@ -412,7 +412,7 @@ footer {
 /* DERECHOS DE AUTOR */
 .copyright {
     text-align: center;
-    color: #9CA3AF;
+    color: #F9FAFB;
     font-size: 0.875rem;
 }
 
