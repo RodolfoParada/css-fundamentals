@@ -1,0 +1,114 @@
+/* Task 1: Selectores CSS y Especificidad (8 minutos)
+Los selectores determinan qué elementos HTML serán afectados por las reglas CSS, y la especificidad decide cuál regla prevalece.
+
+Tipos de Selectores Básicos */
+
+/* Selector universal */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Selector de elemento */
+h1 {
+  color: blue;
+}
+
+/* Selector de clase */
+.destacado {
+  font-weight: bold;
+}
+
+/* Selector de ID */
+#principal {
+  width: 100%;
+}
+
+/* Selector descendente */
+article p {
+  line-height: 1.6;
+}
+
+/* Selector hijo directo */
+ul > li {
+  margin-bottom: 5px;
+}
+
+/* Selector adyacente */
+h1 + p {
+  margin-top: 0;
+}
+
+/* Selector general de hermanos */
+h1 ~ p {
+  color: gray;
+}
+
+/* Selectores Avanzados (CSS3+) */
+
+/* Selector de atributo */
+input[type="text"] {
+  border: 1px solid #ccc;
+}
+
+input[type="email"]:focus {
+  border-color: blue;
+}
+
+/* Pseudo-clases */
+a:hover {
+  color: red;
+}
+
+li:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+/* Pseudo-elementos */
+p::first-line {
+  font-weight: bold;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+/* Combinadores */
+.header .nav li.active {
+  background-color: yellow;
+}
+
+/* Especificidad y Cascada
+La especificidad determina qué regla CSS se aplica cuando múltiples reglas afectan el mismo elemento. */
+
+/* Especificidad de menor a mayor */
+
+/* 0 puntos - selector universal */
+* { color: black; }
+
+/* 1 punto - selector de elemento */
+p { color: green; }
+
+/* 10 puntos - selector de clase */
+.destacado { color: blue; }
+
+/* 100 puntos - selector de ID */
+#principal { color: red; }
+
+/* Combinaciones */
+p.destacado { color: purple; } /* 1 + 10 = 11 puntos */
+div#principal { color: orange; } /* 1 + 100 = 101 puntos */
+
+/* !important anula todo (evitar usarlo) */
+p { color: pink !important; }
+
+
+/* Regla nemotécnica para especificidad:
+
+IDs: 100 puntos
+Clases/Atributos/Pseudo-clases: 10 puntos
+Elementos/Pseudo-elementos: 1 punto */
