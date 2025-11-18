@@ -1,0 +1,453 @@
+/* ======================================================= */
+/* 0. VARIABLES Y RESET (Base) */
+/* ======================================================= */
+
+:root {
+    --primary-blue: #1D4ED8;
+    --secondary-gray: #4B5563;
+    --accent-red: #EF4444;
+    --background-color: #F9FAFB;
+    --white: #ffffff;
+    --text-color: #374151;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* CLASES DE UTILIDAD */
+.transition-default {
+    transition: all 0.3s ease-in-out;
+}
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* ======================================================= */
+/* 1. HEADER CON NAVEGACIÓN */
+/* ======================================================= */
+header {
+    background-color: var(--primary-blue);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.logo {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.025em;
+}
+
+.logo:hover {
+    color: var(--accent-red);
+}
+
+/* MENÚ DE NAVEGACIÓN (Desktop) */
+.nav-links {
+    display: none;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent-red);
+}
+
+.nav-links .cta-link {
+    background-color: var(--accent-red);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 700;
+}
+
+.nav-links .cta-link:hover {
+    background-color: #DC2626;
+    color: var(--white);
+}
+
+/* Botón de Menú Móvil (Hamburguesa) */
+.menu-toggle {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: var(--white);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-icon.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ======================================================= */
+/* 2. MENÚ MÓVIL DESPLEGABLE */
+/* ======================================================= */
+.mobile-menu {
+    display: none; /* Controlado por JS */
+    background-color: #1E40AF;
+    padding-bottom: 0.75rem;
+}
+
+.mobile-menu a {
+    display: block;
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.mobile-menu a:hover {
+    background-color: #2563EB;
+}
+
+.mobile-menu .cta-link-mobile {
+    background-color: var(--accent-red);
+    margin: 0.5rem 1rem 0;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 9999px;
+    font-weight: 700;
+}
+
+.mobile-menu .cta-link-mobile:hover {
+    background-color: #DC2626;
+}
+
+/* ======================================================= */
+/* 3. CONTENIDO PRINCIPAL (MAIN) */
+/* ======================================================= */
+main {
+    flex-grow: 1;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* CONTENEDOR FLEX PARA EL LAYOUT PRINCIPAL */
+.main-layout {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 2.5rem;
+}
+
+/* ======================================================= */
+/* 4. SECCIÓN DE ARTÍCULOS (GRID) */
+/* ======================================================= */
+.articles-section {
+    width: 100%;
+}
+
+.articles-section h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--secondary-gray);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 0.5rem;
+}
+
+/* GRID de Artículos */
+.articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Tarjeta de Artículo (General) */
+.article-card {
+    background-color: var(--white);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.article-card img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 1.5rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.tag-blue { color: var(--primary-blue); background-color: #DBEAFE; }
+.tag-red { color: var(--accent-red); background-color: #FEE2E2; }
+.tag-green { color: #15803D; background-color: #DCFCE7; }
+.tag-yellow { color: #B45309; background-color: #FEF3C7; }
+
+.article-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-gray);
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-content h3:hover {
+    color: var(--primary-blue);
+}
+
+.article-content p {
+    color: #4B5563;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.read-more {
+    margin-top: 1rem;
+    display: inline-block;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.read-more:hover {
+    color: var(--accent-red);
+}
+/* Estilos aplican a los cuatro artículos (1, 2, 3, 4) */
+
+/* ======================================================= */
+/* 5. SIDEBAR CON CATEGORÍAS (Incluye Buscador) */
+/* ======================================================= */
+.sidebar {
+    width: 100%;
+}
+
+.sidebar-block {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.sidebar-block h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-gray);
+    margin-bottom: 1rem;
+}
+
+/* Buscador */
+.search-form {
+    display: flex;
+}
+
+.search-form input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #D1D5DB;
+    border-right: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    outline: none;
+}
+
+.search-form input:focus {
+    box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+.search-form button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #2563EB;
+}
+
+.search-form svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* 6. CATEGORÍAS */
+.categories-list {
+    list-style: none;
+}
+
+.categories-list li {
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.categories-list li:last-child {
+    border-bottom: none;
+}
+
+.categories-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: #4B5563;
+}
+
+.categories-list a:hover {
+    color: var(--primary-blue);
+    transform: translateX(4px);
+}
+
+.category-count {
+    font-size: 0.75rem;
+    background-color: #E5E7EB;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+}
+
+/* ======================================================= */
+/* 7. FOOTER */
+/* ======================================================= */
+footer {
+    background-color: var(--secondary-gray);
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.footer-content {
+    color: var(--white);
+    border-bottom: 1px solid #4B5563;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+.footer-section:first-child h4 {
+    font-size: 1.5rem;
+}
+
+.footer-section p, .footer-section li {
+    font-size: 0.875rem;
+    color: #D1D5DB;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: var(--white);
+}
+
+/* DERECHOS DE AUTOR */
+.copyright {
+    text-align: center;
+    color: #9CA3AF;
+    font-size: 0.875rem;
+}
+
+/* ======================================================= */
+/* MEDIA QUERIES (Responsividad) */
+/* ======================================================= */
+
+/* Tablet/Pequeño Desktop (md: 768px) */
+@media (min-width: 768px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Desktop (lg: 1024px) */
+@media (min-width: 1024px) {
+    /* Header */
+    .menu-toggle {
+        display: none;
+    }
+    .nav-links {
+        display: flex;
+    }
+
+    /* Main Layout: Flexbox Side-by-Side */
+    .main-layout {
+        flex-direction: row;
+    }
+    .articles-section {
+        width: 66.666667%;
+    }
+    .sidebar {
+        width: 33.333333%;
+    }
+}

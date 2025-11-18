@@ -1,0 +1,227 @@
+<!-- Ejercicio: Crea un layout de blog responsivo que incluya: 
+header con navegación, 
+sección principal con artículos en grid, 
+sidebar con categorías, 
+y footer.
+ Usa Flexbox para el layout principal y media queries para diferentes tamaños de pantalla. 
+ Incluye hover effects y transiciones suaves. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout de Blog Responsivo (CSS Nativo)</title>
+    <!-- Enlace al archivo de estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Para asegurar la fuente 'Inter' -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. Header con Navegación -->
+    <header class="transition-default">
+        <div class="container header-content">
+            <!-- Logo del Blog -->
+            <a href="#" class="logo transition-default">
+                Blog Comida Chilena
+            </a>
+
+            <!-- Menú de Navegación (Desktop) -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="transition-default">Inicio</a></li>
+                    <li><a href="#" class="transition-default">Temas</a></li>
+                    <li><a href="#" class="transition-default">Acerca de</a></li>
+                    <li><a href="#" class="cta-link transition-default">Suscribirse</a></li>
+                </ul>
+            </nav> 
+        </div>
+
+
+    <!-- 2.Menú Móvil Desplegable -->
+        <div id="mobileMenu" class="mobile-menu transition-default">
+            <a href="#">Inicio</a>
+            <a href="#">Temas</a>
+            <a href="#">Acerca de</a>
+            <a href="#" class="cta-link-mobile transition-default">Suscribirse</a>
+        </div>
+    </header>
+
+    <!--3.Contenido Principal -->
+    <main class="container">
+        <!-- Contenedor Flex para el layout principal -->
+        <div class="main-layout">
+
+    <!-- 4. Sección de Artículos (Grid) -->
+            <section class="articles-section">
+                <h2>Los Mejores Platos</h2> 
+                <!-- Artículo 1 -->
+                <div class="articles-grid">
+                    <!-- Artículo 1 -->
+                    <div class="article-card transition-default">
+                        <img src="https://somostour.cl/wp-content/uploads/2020/03/pastel-de-choclo-blog.png" alt="Patel de Choclo">
+                        <div class="article-content">
+                            <span class="tag tag-blue">Comida Chilana</span>
+                            <h3 class="transition-default">Pastel de Choclo</h3>
+                            <p>
+                                Pastel de Choclo: Tesoro chileno, dulce y cremoso, con delicioso relleno. ¡Inigualable y reconfortante!
+                            </p>
+                            <a href="#" class="read-more transition-default">Leer más &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Artículo 2 -->
+                    <div class="article-card transition-default">
+                        <img src="https://media.biobiochile.cl/wp-content/uploads/2021/05/completo-750x400-1-750x400.jpg" alt="Completo Italiano">
+                        <div class="article-content">
+                            <span class="tag tag-red">Comida Chilena</span>
+                            <h3 class="transition-default"> Completo Italiano</h3>
+                            <p>
+                             Completo Italiano: Majestuoso, cremoso, palta fresca, tomate jugoso, mayo suave. ¡Mordisco celestial de sabor chileno!
+                            </p>
+                            <a href="#" class="read-more transition-default">Leer más &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Artículo 3 -->
+                    <div class="article-card transition-default">
+                        <img src="https://storage.googleapis.com/chile-travel-cdn/2023/04/e091e9e8-tradicional.jpg" alt="Cazuela Vacuno">
+                        <div class="article-content">
+                            <span class="tag tag-green">Comida Chilena</span>
+                            <h3 class="transition-default">Cazuela de Vacuno</h3>
+                            <p>
+                               Cazuela: Caldo profundo, carne blanda, choclo, papa y zapallo. ¡La calidez de Chile en un plato!
+                            </p>
+                            <a href="#" class="read-more transition-default">Leer más &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Artículo 4 -->
+                    <div class="article-card transition-default">
+                        <img src="https://www.holidayinnexpress.cl/wp-content/uploads/2024/01/empanadas.jpg" alt="Empanadas">
+                        <div class="article-content">
+                            <span class="tag tag-yellow">Comida Chilena</span>
+                            <h3 class="transition-default">Empanada de Pino</h3>
+                            <p>
+                                Empanada de Pino: Masa crujiente, pino sabroso, carne jugosa, huevo y aceituna. ¡Tradición chilena inigualable!
+                            </p>
+                            <a href="#" class="read-more transition-default">Leer más &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- 5. Sidebar con Categorías -->
+            <aside class="sidebar">
+                
+                <!-- Buscador -->
+                <div class="sidebar-block">
+                    <h3>Buscar en el Blog</h3>
+                    <form class="search-form">
+                        <input type="text" placeholder="Escribe aquí..." class="transition-default">
+                        <button class="transition-default">
+                            <!-- Icono SVG de búsqueda -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 4.887l3.75 3.75a.75.75 0 1 1-1.06 1.06l-3.75-3.75A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+     <!-- 6. Categorías -->
+                <div class="sidebar-block">
+                    <h3>Categorías</h3>
+                    <ul class="categories-list">
+                        <li>
+                            <a href="#" class="transition-default">
+                                <span>Comida Criollar</span>
+                                <span class="category-count">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="transition-default">
+                                <span>Masas, Frituras y Sándwiches</span>
+                                <span class="category-count">8</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="transition-default">
+                                <span>Pescados y Mariscos</span>
+                                <span class="category-count">5</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="transition-default">
+                                <span>Postres y Repostería</span>
+                                <span class="category-count">15</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="#" class="transition-default">
+                                <span>Bebidas y licores</span>
+                                <span class="category-count">15</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- 7. Footer -->
+    <footer>
+        <div class="container footer-content">
+            <!-- Contenido del Footer (Grid para las columnas) -->
+            <div class="footer-grid">
+                
+                <!-- Columna 1: Descripción -->
+                <div class="footer-section">
+                    <h4>Blog Comida Chilena</h4>
+                    <p>
+                        Gastronomía chilena, recetas auténticas, cultura culinaria. ¡Descubre sabores únicos y tradiciones deliciosas con nosotros!
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#" class="transition-default">Política de Privacidad</a></li>
+                        <li><a href="#" class="transition-default">Términos de Servicio</a></li>
+                        <li><a href="#" class="transition-default">Mapa del Sitio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Temas Populares -->
+                <div class="footer-section">
+                    <h4>Populares</h4>
+                    <ul>
+                        <li><a href="#" class="transition-default">Comida Criolla</a></li>
+                        <li><a href="#" class="transition-default">Masas, Frituras y Sándwiches</a></li>
+                        <li><a href="#" class="transition-default">Pescados y Mariscos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div class="footer-section">
+                    <h4>Contáctanos</h4>
+                    <ul>
+                        <li>Email: info@blogcomidachilena.cl</li>
+                        <li>Tel: +56 9 1234 5678</li>
+                        <li>Dirección: Algún lugar de Chile</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </div>
+        
+        <!-- Derechos de Autor -->
+        <div class="container copyright">
+            &copy; 2025 Blog Comida Chilena. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    
+</body>
+</html>
