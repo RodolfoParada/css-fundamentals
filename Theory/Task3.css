@@ -1,0 +1,74 @@
+/* Task 3: Flexbox Básico (8 minutos)
+Flexbox es un modelo de layout unidimensional que permite crear layouts flexibles y responsivos.
+
+Contenedor Flex (Flex Container) */
+
+/* Activar flexbox */
+.contenedor {
+  display: flex;
+  
+  /* Dirección del flujo principal */
+  flex-direction: row; /* horizontal (default) */
+  flex-direction: column; /* vertical */
+  flex-direction: row-reverse; /* horizontal invertido */
+  flex-direction: column-reverse; /* vertical invertido */
+  
+  /* Envoltura */
+  flex-wrap: nowrap; /* no envolver (default) */
+  flex-wrap: wrap; /* envolver a nueva línea */
+  flex-wrap: wrap-reverse; /* envolver en dirección opuesta */
+  
+  /* Shorthand */
+  flex-flow: row wrap; /* flex-direction + flex-wrap */
+  
+  /* Alineación principal (eje principal) */
+  justify-content: flex-start; /* inicio (default) */
+  justify-content: flex-end; /* fin */
+  justify-content: center; /* centro */
+  justify-content: space-between; /* espacio entre elementos */
+  justify-content: space-around; /* espacio alrededor */
+  justify-content: space-evenly; /* espacio uniforme */
+  
+  /* Alineación cruzada (eje perpendicular) */
+  align-items: stretch; /* estirar (default) */
+  align-items: flex-start; /* inicio */
+  align-items: flex-end; /* fin */
+  align-items: center; /* centro */
+  align-items: baseline; /* línea base del texto */
+  
+  /* Alineación de múltiples líneas */
+  align-content: flex-start; /* inicio */
+  align-content: flex-end; /* fin */
+  align-content: center; /* centro */
+  align-content: space-between; /* espacio entre */
+  align-content: space-around; /* espacio alrededor */
+  align-content: stretch; /* estirar */
+}
+
+/* Elementos Flex (Flex Items) */
+
+/* Propiedades de elementos flex */
+.item {
+  /* Orden */
+  order: 0; /* orden de aparición (default: 0) */
+  
+  /* Crecimiento */
+  flex-grow: 0; /* cuánto crece (default: 0) */
+  
+  /* Encogimiento */
+  flex-shrink: 1; /* cuánto se encoge (default: 1) */
+  
+  /* Tamaño base */
+  flex-basis: auto; /* tamaño inicial (default: auto) */
+  
+  /* Shorthand */
+  flex: 1; /* flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
+  flex: 0 1 auto; /* valores individuales */
+  
+  /* Alineación individual */
+  align-self: auto; /* hereda de align-items (default) */
+  align-self: flex-start;
+  align-self: flex-end;
+  align-self: center;
+  align-self: stretch;
+}

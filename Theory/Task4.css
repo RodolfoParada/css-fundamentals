@@ -1,0 +1,60 @@
+/* Task 4: Unidades de Medida y Responsive Design (6 minutos)
+Unidades Absolutas vs Relativas */
+
+/* Unidades absolutas */
+.absoluto {
+  width: 200px; /* píxeles */
+  font-size: 16pt; /* puntos */
+  margin: 1in; /* pulgadas */
+  padding: 2cm; /* centímetros */
+  border: 1mm solid black; /* milímetros */
+}
+
+/* Unidades relativas */
+.relativo {
+  width: 50%; /* porcentaje del contenedor padre */
+  font-size: 1.2em; /* relativo al font-size del elemento */
+  line-height: 1.5em; /* relativo al font-size actual */
+  padding: 1rem; /* relativo al font-size de :root */
+  margin: 0.5vw; /* porcentaje del ancho de viewport */
+  height: 50vh; /* porcentaje del alto de viewport */
+  min-width: 100vmin; /* mínimo entre vw y vh */
+  max-width: 100vmax; /* máximo entre vw y vh */
+}
+
+
+
+/* Media Queries para Responsive Design */
+
+/* Media queries básicos */
+@media screen and (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .contenedor {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Media queries con características */
+@media (orientation: portrait) {
+  .imagen {
+    width: 100%;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .imagen {
+    /* imágenes de alta resolución */
+  }
+}
