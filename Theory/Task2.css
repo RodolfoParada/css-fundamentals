@@ -1,0 +1,106 @@
+/* Regla nemotécnica para especificidad:
+
+IDs: 100 puntos
+Clases/Atributos/Pseudo-clases: 10 puntos
+Elementos/Pseudo-elementos: 1 punto */
+
+/* Modelo de caja completo */
+.caja {
+  /* Contenido */
+  width: 200px;
+  height: 100px;
+  
+  /* Padding (relleno interno) */
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  
+  /* Padding shorthand */
+  padding: 10px 20px; /* arriba/abajo, izquierda/derecha */
+  padding: 10px 20px 15px; /* arriba, izquierda/derecha, abajo */
+  padding: 10px 20px 15px 25px; /* arriba, derecha, abajo, izquierda */
+  
+  /* Border (borde) */
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  
+  /* Border shorthand */
+  border: 2px solid black;
+  border-top: 1px dashed red;
+  
+  /* Margin (margen externo) */
+  margin-top: 15px;
+  margin: 15px auto; /* centrado horizontal */
+}
+
+/* Box-sizing: border-box (recomendado) */
+.elemento {
+  box-sizing: border-box; /* width incluye padding y border */
+  width: 200px;
+  padding: 20px;
+  border: 2px solid black;
+  /* Ancho total sigue siendo 200px */
+}
+
+/* Propiedades de Layout */
+/* Display */
+.block {
+  display: block; /* ocupa todo el ancho disponible */
+}
+
+.inline {
+  display: inline; /* solo ocupa el espacio necesario */
+}
+
+.none {
+  display: none; /* oculta el elemento */
+}
+
+.inline-block {
+  display: inline-block; /* inline pero con propiedades de block */
+}
+
+/* Position */
+.static {
+  position: static; /* posición normal (default) */
+}
+
+.relative {
+  position: relative;
+  top: 10px;
+  left: 20px; /* relativo a su posición normal */
+}
+
+.absolute {
+  position: absolute;
+  top: 0;
+  right: 0; /* relativo al primer ancestro posicionado */
+}
+
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* relativo a la ventana del navegador */
+}
+
+.sticky {
+  position: sticky;
+  top: 0; /* se pega al top cuando llega */
+}
+
+/* Float y Clear */
+.izquierda {
+  float: left;
+  width: 50%;
+}
+
+.derecha {
+  float: right;
+  width: 50%;
+}
+
+.limpiar {
+  clear: both; /* evita que elementos floten alrededor */
+}
